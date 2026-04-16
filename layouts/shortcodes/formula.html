@@ -1,0 +1,5 @@
+<div class="formula">
+  <div class="math">{{ .Get "math" }}</div>
+  {{ with .Inner }}<div class="desc">{{ . | markdownify }}</div>{{ end }}
+  {{ with .Get "desc" }}<div class="desc">{{ . }}</div>{{ end }}
+</div>

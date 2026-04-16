@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="page" style="display:block;max-width:800px;margin:0 auto;">
+  <div class="main" style="max-width:100%;">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Главная</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <a href="/calculators/">Калькуляторы</a>
+      <span class="sep" aria-hidden="true">/</span>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+
+    <!-- Header -->
+    <div class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <!-- Source article link -->
+    {{ with .Params.calc_source }}
+    <div style="margin-top:48px;padding:20px 24px;background:rgba(124,58,237,0.04);border:1px solid rgba(124,58,237,0.12);border-radius:10px;">
+      <div style="font-family:var(--font-heading);font-size:0.82rem;font-weight:600;color:#7c3aed;margin-bottom:4px;">Подробнее о модели</div>
+      <a href="{{ . }}" style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-primary);text-decoration:underline;text-underline-offset:3px;">Читать статью &rarr;</a>
+    </div>
+    {{ end }}
+
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <div class="article-tags">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="tag">#{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

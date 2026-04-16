@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="page-full">
+  <div class="section-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </div>
+
+  {{ with .Content }}{{ . }}{{ end }}
+
+  <div class="article-list">
+    {{ $sectionTag := dict "basics" "основы" "models" "модели" "governance" "governance" "knowledge" "стратегия" "validators" "валидаторы" "cases" "кейсы" }}
+    {{ range .Pages.ByWeight }}
+    <a href="{{ .Permalink }}" class="article-card">
+      <div class="article-meta">
+        {{ $group := .Params.knowledge_group | default .Section }}
+        <span class="article-tag article-tag--{{ $group }}">{{ with .Params.tag_label }}{{ . }}{{ else }}{{ index $sectionTag .Section | default .Section }}{{ end }}</span>
+        <span class="article-readtime">{{ .ReadingTime }} мин</span>
+      </div>
+      <h3>{{ .Title }}</h3>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

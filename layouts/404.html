@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="error-page" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 4rem 2rem;">
+  <div>
+    <h1 style="font-size: 6rem; font-weight: 900; margin-bottom: 0.5rem; opacity: 0.3;">404</h1>
+    <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Страница не найдена</h2>
+    <p style="opacity: 0.7; margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">
+      Возможно, она была перемещена или удалена. Попробуйте начать с одного из разделов:
+    </p>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+      <a href="/knowledge/" class="btn btn-primary" style="padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">База знаний</a>
+      <a href="/cases/" class="btn" style="padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border);">Кейсы</a>
+      <a href="/" class="btn" style="padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; border: 1px solid var(--border);">Главная</a>
+    </div>
+  </div>
+</section>
+{{ end }}

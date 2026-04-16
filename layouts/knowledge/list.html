@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="page-full">
+  <div class="section-header">
+    <h1>{{ .Title }}</h1>
+    <p>Все обучающие статьи по токеномике — от основ до продвинутых моделей</p>
+  </div>
+
+  {{ $groupTitles := dict "basics" "Основы токеномики" "supply" "Модели предложения" "utility" "Модели утилизации" "tools" "Инструменты" "primitives" "Примитивы" "governance" "Governance и DAO" }}
+  {{ $groupDescs := dict "basics" "Что такое токеномика, процесс проектирования, стейкхолдеры" "supply" "Аллокация, bonding curve, airdrop, reward-эмиссия, рыночные модели" "utility" "Модели спроса, скорость обращения, дивиденды, стейкинг" "tools" "Симуляции, агентное моделирование, шаблоны, дизайн механизмов" "primitives" "AMM, ликвидность, базовые протокольные механизмы" "governance" "Механизмы голосования, делегирование, атаки на governance" }}
+
+  {{ $groups := slice "basics" "supply" "utility" "tools" "primitives" "governance" }}
+
+  {{ $allPages := site.RegularPages }}
+
+  {{ range $group := $groups }}
+    {{ $pages := where $allPages ".Params.knowledge_group" $group }}
+    {{ with $pages }}
+    <div class="knowledge-section">
+      <h2>{{ index $groupTitles $group }}</h2>
+      <p class="knowledge-section-desc">{{ index $groupDescs $group }}</p>
+      <div class="article-list">
+        {{ range .ByWeight }}
+        <a href="{{ .Permalink }}" class="article-card">
+          <div class="article-meta">
+            <span class="article-tag article-tag--{{ $group }}">{{ .Params.tag_label }}</span>
+            <span class="article-readtime">{{ .ReadingTime }} мин</span>
+          </div>
+          <h3>{{ .Title }}</h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

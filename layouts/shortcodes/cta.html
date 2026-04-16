@@ -1,0 +1,7 @@
+<div class="article-cta">
+  <h3>{{ .Get "title" | default "Заказать токеномику" }}</h3>
+  <p>{{ .Get "text" | default "Разработаем токеномическую модель для вашего проекта" }}</p>
+  <a href="{{ .Get "link" | default $.Site.Params.ctaOrder }}" class="btn-primary" target="_blank" rel="noopener">
+    {{ .Get "button" | default "Связаться →" }}
+  </a>
+</div>

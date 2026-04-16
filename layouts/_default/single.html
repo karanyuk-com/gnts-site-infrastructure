@@ -1,0 +1,73 @@
+{{ define "main" }}
+<div class="page">
+  <div class="main">
+    <!-- Breadcrumbs -->
+    {{ $groupTitles := dict "basics" "Основы" "supply" "Предложение" "utility" "Утилизация" "tools" "Инструменты" "primitives" "Примитивы" "governance" "Governance" }}
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Главная</a>
+      <span class="sep" aria-hidden="true">/</span>
+      {{ if eq .Section "cases" }}
+        <a href="/cases/">Кейсы</a>
+      {{ else }}
+        <a href="/knowledge/">База знаний</a>
+        <span class="sep" aria-hidden="true">/</span>
+        {{ with .Params.knowledge_group }}{{ $gt := index $groupTitles . }}{{ with $gt }}<span>{{ . }}</span>{{ end }}{{ end }}
+      {{ end }}
+      <span class="sep" aria-hidden="true">/</span>
+      <span aria-current="page">{{ .Title }}</span>
+    </nav>
+
+    <!-- Article Header -->
+    {{ $ruMonths := dict "January" "января" "February" "февраля" "March" "марта" "April" "апреля" "May" "мая" "June" "июня" "July" "июля" "August" "августа" "September" "сентября" "October" "октября" "November" "ноября" "December" "декабря" }}
+    <div class="article-header">
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+      <div class="article-meta">
+        {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Day }} {{ index $ruMonths (.Format "January") }} {{ .Year }}</time>{{ end }}
+        {{ with .ReadingTime }}<span>{{ . }} мин. чтения</span>{{ end }}
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <!-- Tags -->
+    {{ with .Params.tags }}
+    <div class="article-tags">
+      {{ range . }}
+      <a href="/tags/{{ . | urlize }}/" class="tag">#{{ . }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    <!-- Related articles (fixed position: always after tags) -->
+    <div class="related-articles">
+      <h3>Читайте также</h3>
+      <ul>
+        {{ if .Params.related }}
+          {{ range .Params.related }}
+            {{ $desc := .desc }}
+            {{ with site.GetPage .path }}
+            <li><a href="{{ .Permalink }}">{{ .Title }}</a>{{ with $desc }} — {{ . }}{{ end }}</li>
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          {{ range .Site.RegularPages.Related $ | first 3 }}
+          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Sidebar TOC -->
+  <aside class="sidebar-toc" aria-label="Содержание">
+    <div class="sidebar-toc-title">Содержание</div>
+    <nav aria-label="Оглавление статьи">
+      {{ .TableOfContents }}
+    </nav>
+  </aside>
+</div>
+{{ end }}

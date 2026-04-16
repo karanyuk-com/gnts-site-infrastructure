@@ -1,0 +1,26 @@
+{{ $id := .Get "id" }}
+{{ $gid := .Get "gid" }}
+{{ $range := .Get "range" }}
+{{ $height := .Get "height" | default "500" }}
+{{ $scale := .Get "scale" | default "0.75" }}
+{{ $title := .Get "title" | default "Модель" }}
+{{ $url := printf "https://docs.google.com/spreadsheets/d/%s/htmlembed" $id }}
+{{ if and $gid $range }}
+  {{ $url = printf "%s?gid=%s&range=%s&chrome=false" $url $gid $range }}
+{{ else if $gid }}
+  {{ $url = printf "%s?gid=%s&chrome=false" $url $gid }}
+{{ else if $range }}
+  {{ $url = printf "%s?range=%s&chrome=false" $url $range }}
+{{ else }}
+  {{ $url = printf "%s?chrome=false" $url }}
+{{ end }}
+<div class="gsheet-embed" style="overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-secondary); height: {{ $height }}px;">
+  <iframe
+    src="{{ $url }}"
+    width="{{ printf "%.0f" (div 100.0 (float $scale)) }}%"
+    height="{{ printf "%.0f" (div (float $height) (float $scale)) }}"
+    style="transform: scale({{ $scale }}); transform-origin: 0 0; border: none;"
+    title="{{ $title }}"
+    loading="lazy">
+  </iframe>
+</div>

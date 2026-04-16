@@ -1,0 +1,466 @@
+{{ define "main" }}
+
+<!-- Nebula background orbs -->
+<div class="nebula-bg">
+  <div class="milky-way"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="orb orb-4"></div>
+  <div class="orb orb-5"></div>
+</div>
+
+<!-- Particle canvas -->
+<canvas id="nebula-canvas"></canvas>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <!-- Realistic Saturn -->
+    <div class="saturn-wrapper">
+      <div class="saturn-glow"></div>
+
+      <!-- Back half of rings (behind planet) -->
+      <svg class="saturn-rings-svg saturn-rings-back" viewBox="0 0 700 280">
+        <defs>
+          <clipPath id="rings-back-clip">
+            <rect x="0" y="0" width="700" height="120"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#rings-back-clip)">
+          <ellipse cx="350" cy="140" rx="340" ry="80" fill="none" stroke="rgba(180,165,220,0.12)" stroke-width="18"/>
+          <ellipse cx="350" cy="140" rx="310" ry="72" fill="none" stroke="rgba(160,140,210,0.1)" stroke-width="25"/>
+          <ellipse cx="350" cy="140" rx="282" ry="65" fill="none" stroke="rgba(6,3,15,0.6)" stroke-width="4"/>
+          <ellipse cx="350" cy="140" rx="268" ry="62" fill="none" stroke="rgba(140,120,200,0.08)" stroke-width="20"/>
+          <ellipse cx="350" cy="140" rx="245" ry="56" fill="none" stroke="rgba(120,100,180,0.06)" stroke-width="8"/>
+        </g>
+      </svg>
+
+      <!-- Planet body -->
+      <div class="saturn-body">
+        <div class="saturn-bands"></div>
+        <div class="saturn-rim"></div>
+        <div class="saturn-shadow"></div>
+      </div>
+
+      <!-- Front half of rings (in front of planet) -->
+      <svg class="saturn-rings-svg saturn-rings-front" viewBox="0 0 700 280">
+        <defs>
+          <clipPath id="rings-front-clip">
+            <rect x="0" y="140" width="700" height="140"/>
+          </clipPath>
+          <linearGradient id="ring-shadow" x1="0.3" y1="0" x2="0.7" y2="0">
+            <stop offset="0%" stop-color="rgba(0,0,0,0)"/>
+            <stop offset="35%" stop-color="rgba(0,0,0,0.4)"/>
+            <stop offset="55%" stop-color="rgba(0,0,0,0.5)"/>
+            <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+          </linearGradient>
+        </defs>
+        <g clip-path="url(#rings-front-clip)">
+          <ellipse cx="350" cy="140" rx="340" ry="80" fill="none" stroke="rgba(200,185,240,0.18)" stroke-width="18"/>
+          <ellipse cx="350" cy="140" rx="310" ry="72" fill="none" stroke="rgba(185,165,230,0.16)" stroke-width="25"/>
+          <ellipse cx="350" cy="140" rx="282" ry="65" fill="none" stroke="rgba(6,3,15,0.7)" stroke-width="4"/>
+          <ellipse cx="350" cy="140" rx="268" ry="62" fill="none" stroke="rgba(170,150,220,0.13)" stroke-width="20"/>
+          <ellipse cx="350" cy="140" rx="245" ry="56" fill="none" stroke="rgba(150,130,200,0.09)" stroke-width="8"/>
+          <ellipse cx="350" cy="140" rx="310" ry="72" fill="none" stroke="url(#ring-shadow)" stroke-width="60" opacity="0.4"/>
+        </g>
+      </svg>
+    </div>
+
+    <h1 class="reveal">Проектируем <span class="accent">экономику токенов</span> для блокчейн-проектов</h1>
+    <p class="subtitle reveal">Полный цикл от идеи до имплементации в смарт-контракты</p>
+    <div class="hero-buttons reveal">
+      <a href="/knowledge/" class="btn-primary btn-large">База знаний</a>
+      <a href="/cases/" class="btn-outline btn-large">Кейсы</a>
+      <a href="/calculators/" class="btn-outline btn-large">Калькуляторы</a>
+      <a href="{{ .Site.Params.ctaOrder }}" class="btn-outline btn-large" target="_blank" rel="noopener">Заказать токеномику</a>
+    </div>
+    <div class="stats-row reveal">
+      <div class="stat-card">
+        <div class="stat-value">30+</div>
+        <div class="stat-label">проектов разработано</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">15+</div>
+        <div class="stat-label">моделей в открытом доступе</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">40+</div>
+        <div class="stat-label">статей в базе знаний</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="aurora-divider"></div>
+
+<!-- Problem -->
+<section class="problem-section">
+  <div class="container">
+    <div class="problem-card reveal">
+      <h2>Токеномика — это не распределение токенов</h2>
+      <p>Большинство проектов теряют деньги из-за ошибок в экономическом дизайне: неверная эмиссия, отсутствие дефляционных механизмов, governance-театр, когда киты решают всё заранее, и&nbsp;токены без реального спроса, которые держатся только на хайпе. Токеномика — это проектирование <strong>устойчивой экономической системы</strong>, где каждый механизм работает на продукт.</p>
+    </div>
+  </div>
+</section>
+
+<div class="aurora-divider"></div>
+
+<!-- Services — Vertical Timeline -->
+<section class="services-section" id="services">
+  <div class="container">
+    <h2 class="section-title reveal">Полный цикл разработки токеномики</h2>
+    <p class="section-subtitle reveal">От первого звонка до готовой модели с симуляциями для DeFi, GameFi, DAO, DePin проектов.</p>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-col-left">
+
+        <!-- Step 01 -->
+        <div class="timeline-step reveal">
+          <div class="timeline-content">
+            <div class="timeline-svg-inline">
+              <svg viewBox="0 0 240 140" fill="none">
+                <rect x="60" y="10" width="120" height="120" rx="8" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="60" y="10" width="120" height="120" rx="8" stroke="rgba(192,132,252,0.8)" stroke-width="1.5" stroke-dasharray="480" stroke-dashoffset="480" style="--dash-len:480" class="anim-draw"/>
+                <line x1="78" y1="40" x2="162" y2="40" stroke="rgba(192,132,252,0.6)" stroke-width="1" stroke-dasharray="84" stroke-dashoffset="84" style="--dash-len:84" class="anim-draw-delay1"/>
+                <line x1="78" y1="56" x2="145" y2="56" stroke="rgba(192,132,252,0.6)" stroke-width="1" stroke-dasharray="67" stroke-dashoffset="67" style="--dash-len:67" class="anim-draw-delay1"/>
+                <line x1="78" y1="72" x2="155" y2="72" stroke="rgba(192,132,252,0.6)" stroke-width="1" stroke-dasharray="77" stroke-dashoffset="77" style="--dash-len:77" class="anim-draw-delay2"/>
+                <line x1="78" y1="88" x2="130" y2="88" stroke="rgba(192,132,252,0.6)" stroke-width="1" stroke-dasharray="52" stroke-dashoffset="52" style="--dash-len:52" class="anim-draw-delay2"/>
+                <text x="148" y="108" fill="rgba(192,132,252,0.7)" font-size="24" font-family="Space Grotesk, sans-serif" stroke-dasharray="60" stroke-dashoffset="60" style="--dash-len:60" class="anim-draw-delay3">?</text>
+                <circle cx="72" cy="40" r="2" fill="rgba(192,132,252,0.5)" class="anim-draw-delay1"/>
+                <circle cx="72" cy="56" r="2" fill="rgba(192,132,252,0.5)" class="anim-draw-delay1"/>
+                <circle cx="72" cy="72" r="2" fill="rgba(192,132,252,0.5)" class="anim-draw-delay2"/>
+                <circle cx="72" cy="88" r="2" fill="rgba(192,132,252,0.5)" class="anim-draw-delay2"/>
+              </svg>
+            </div>
+            <div class="step-number">01</div>
+            <h3>Концепт</h3>
+            <p>Описание токенизируемой системы. Стейкхолдеры, модели supply и demand, ключевые вопросы к команде проекта.</p>
+            <div class="tag-pills">
+              <span class="pill">Стейкхолдеры</span>
+              <span class="pill">Supply/Demand</span>
+              <span class="pill">Техзадание</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="timeline-step reveal">
+          <div class="timeline-content">
+            <div class="timeline-svg-inline">
+              <svg viewBox="0 0 240 140" fill="none">
+                <rect x="30" y="10" width="180" height="120" rx="6" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="30" y="10" width="180" height="120" rx="6" stroke="rgba(192,132,252,0.8)" stroke-width="1.5" stroke-dasharray="600" stroke-dashoffset="600" style="--dash-len:600" class="anim-draw"/>
+                <rect x="31" y="11" width="178" height="24" rx="5" fill="rgba(192,132,252,0.08)"/>
+                <text x="60" y="28" fill="rgba(192,132,252,0.7)" font-size="8" font-family="Inter, sans-serif">Token</text>
+                <text x="110" y="28" fill="rgba(192,132,252,0.7)" font-size="8" font-family="Inter, sans-serif">Alloc %</text>
+                <text x="160" y="28" fill="rgba(192,132,252,0.7)" font-size="8" font-family="Inter, sans-serif">Vesting</text>
+                <line x1="30" y1="35" x2="210" y2="35" stroke="rgba(192,132,252,0.4)" stroke-width="0.5" stroke-dasharray="180" stroke-dashoffset="180" style="--dash-len:180" class="anim-draw-delay1"/>
+                <line x1="30" y1="58" x2="210" y2="58" stroke="rgba(192,132,252,0.3)" stroke-width="0.5" stroke-dasharray="180" stroke-dashoffset="180" style="--dash-len:180" class="anim-draw-delay1"/>
+                <line x1="30" y1="81" x2="210" y2="81" stroke="rgba(192,132,252,0.3)" stroke-width="0.5" stroke-dasharray="180" stroke-dashoffset="180" style="--dash-len:180" class="anim-draw-delay2"/>
+                <line x1="30" y1="104" x2="210" y2="104" stroke="rgba(192,132,252,0.3)" stroke-width="0.5" stroke-dasharray="180" stroke-dashoffset="180" style="--dash-len:180" class="anim-draw-delay2"/>
+                <line x1="96" y1="10" x2="96" y2="130" stroke="rgba(192,132,252,0.3)" stroke-width="0.5" stroke-dasharray="120" stroke-dashoffset="120" style="--dash-len:120" class="anim-draw-delay1"/>
+                <line x1="148" y1="10" x2="148" y2="130" stroke="rgba(192,132,252,0.3)" stroke-width="0.5" stroke-dasharray="120" stroke-dashoffset="120" style="--dash-len:120" class="anim-draw-delay1"/>
+                <text x="48" y="50" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">Team</text>
+                <text x="110" y="50" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">15%</text>
+                <text x="160" y="50" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">24 мес</text>
+                <text x="48" y="73" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">Investors</text>
+                <text x="110" y="73" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">20%</text>
+                <text x="160" y="73" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">12 мес</text>
+                <text x="48" y="96" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">Community</text>
+                <text x="110" y="96" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">40%</text>
+                <text x="160" y="96" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">36 мес</text>
+                <text x="48" y="119" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">Treasury</text>
+                <text x="110" y="119" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">25%</text>
+                <text x="160" y="119" fill="rgba(192,132,252,0.5)" font-size="7" font-family="Inter, sans-serif">48 мес</text>
+              </svg>
+            </div>
+            <div class="step-number">03</div>
+            <h3>Модель</h3>
+            <p>Перевод дизайна в финансовую модель. Allocation, vesting, bonding curves, token release schedule.</p>
+            <div class="tag-pills">
+              <span class="pill">Google Sheets</span>
+              <span class="pill">Allocation</span>
+              <span class="pill">Vesting</span>
+              <span class="pill">Bonding Curve</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 05 -->
+        <div class="timeline-step reveal">
+          <div class="timeline-content">
+            <div class="timeline-svg-inline">
+              <svg viewBox="0 0 200 100" fill="none">
+                <rect x="10" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="10" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="170" stroke-dashoffset="170" style="--dash-len:170" class="anim-draw"/>
+                <line x1="18" y1="30" x2="38" y2="30" stroke="rgba(192,132,252,0.5)" stroke-width="0.8" opacity="0.4"/>
+                <line x1="18" y1="38" x2="35" y2="38" stroke="rgba(192,132,252,0.5)" stroke-width="0.8" opacity="0.3"/>
+                <text x="27" y="25" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="6">docs</text>
+                <rect x="55" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="55" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="170" stroke-dashoffset="170" style="--dash-len:170" class="anim-draw-delay1"/>
+                <text x="72" y="25" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="6">model</text>
+                <rect x="100" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="100" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="170" stroke-dashoffset="170" style="--dash-len:170" class="anim-draw-delay2"/>
+                <text x="117" y="25" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="6">slides</text>
+                <rect x="145" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="145" y="15" width="35" height="50" rx="4" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="170" stroke-dashoffset="170" style="--dash-len:170" class="anim-draw-delay3"/>
+                <text x="162" y="25" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="6">dashboard</text>
+              </svg>
+            </div>
+            <div class="step-number">05</div>
+            <h3>Документы</h3>
+            <p>Whitepaper, схемы токеномики, финансовые модели, презентации для инвесторов, дашборды.</p>
+            <div class="tag-pills">
+              <span class="pill">Whitepaper</span>
+              <span class="pill">Презентация</span>
+              <span class="pill">Дашборд</span>
+              <span class="pill">Комьюнити</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end timeline-col-left -->
+
+      <div class="timeline-col-right">
+
+        <!-- Step 02 -->
+        <div class="timeline-step reveal">
+          <div class="timeline-content">
+            <div class="timeline-svg-inline">
+              <svg viewBox="0 0 200 120" fill="none">
+                <rect x="30" y="20" width="50" height="30" rx="6" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="30" y="20" width="50" height="30" rx="6" stroke="rgba(192,132,252,0.8)" stroke-width="1.5" stroke-dasharray="160" stroke-dashoffset="160" style="--dash-len:160" class="anim-draw"/>
+                <rect x="120" y="20" width="50" height="30" rx="6" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="120" y="20" width="50" height="30" rx="6" stroke="rgba(192,132,252,0.8)" stroke-width="1.5" stroke-dasharray="160" stroke-dashoffset="160" style="--dash-len:160" class="anim-draw-delay1"/>
+                <rect x="75" y="70" width="50" height="30" rx="6" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2"/>
+                <rect x="75" y="70" width="50" height="30" rx="6" stroke="rgba(192,132,252,0.8)" stroke-width="1.5" stroke-dasharray="160" stroke-dashoffset="160" style="--dash-len:160" class="anim-draw-delay2"/>
+                <path d="M80 50 L95 70" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="30" stroke-dashoffset="30" style="--dash-len:30" class="anim-draw-delay2"/>
+                <path d="M120 50 L105 70" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="30" stroke-dashoffset="30" style="--dash-len:30" class="anim-draw-delay3"/>
+                <path d="M80 35 L120 35" stroke="rgba(192,132,252,0.8)" stroke-width="1" stroke-dasharray="40" stroke-dashoffset="40" style="--dash-len:40" class="anim-draw-delay1"/>
+                <text x="55" y="38" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="7">investor</text>
+                <text x="145" y="38" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="7">protocol</text>
+                <text x="100" y="88" text-anchor="middle" fill="rgba(192,132,252,0.7)" font-size="7">treasury</text>
+              </svg>
+            </div>
+            <div class="step-number">02</div>
+            <h3>Дизайн</h3>
+            <p>Карта стейкхолдеров, желаемое и нежелаемое поведение, потоки ценности между участниками, выравнивание стимулов.</p>
+            <div class="tag-pills">
+              <span class="pill">Value flows</span>
+              <span class="pill">Incentive design</span>
+              <span class="pill">Miro/Lucidchart</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="timeline-step reveal">
+          <div class="timeline-content">
+            <div class="timeline-svg-inline">
+              <svg viewBox="0 0 200 120" fill="none">
+                <path d="M20,80 Q60,20 100,60 T180,40" stroke="rgba(192,132,252,0.5)" stroke-width="1" opacity="0.2" fill="none"/>
+                <path d="M20,80 Q60,20 100,60 T180,40" stroke="rgba(192,132,252,0.8)" stroke-width="1.5" fill="none" stroke-dasharray="280" stroke-dashoffset="280" style="--dash-len:280" class="anim-draw"/>
+                <path d="M20,85 Q55,50 100,70 T180,55" stroke="rgba(192,132,252,0.8)" stroke-width="1" fill="none" stroke-dasharray="250" stroke-dashoffset="250" opacity="0.4" style="--dash-len:250" class="anim-draw-delay1"/>
+                <path d="M20,75 Q65,10 100,50 T180,30" stroke="rgba(192,132,252,0.8)" stroke-width="1" fill="none" stroke-dasharray="260" stroke-dashoffset="260" opacity="0.4" style="--dash-len:260" class="anim-draw-delay2"/>
+                <rect x="140" y="20" width="45" height="22" rx="4" stroke="rgba(192,132,252,0.6)" stroke-width="0.8" fill="rgba(26,21,53,0.8)"/>
+                <text x="163" y="30" text-anchor="middle" fill="rgba(192,132,252,0.6)" font-size="6">stress</text>
+                <text x="163" y="38" text-anchor="middle" fill="rgba(192,132,252,0.6)" font-size="6">test</text>
+                <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(192,132,252,0.5)" stroke-width="0.5" opacity="0.3"/>
+              </svg>
+            </div>
+            <div class="step-number">04</div>
+            <h3>Симуляции</h3>
+            <p>Сценарный анализ: "что если пользователи уйдут на 50%?". Stress-тесты treasury, анализ чувствительности параметров.</p>
+            <div class="tag-pills">
+              <span class="pill">Scenarios</span>
+              <span class="pill">Stress-тесты</span>
+              <span class="pill">Sensitivity</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end timeline-col-right -->
+
+    </div><!-- end timeline-wrapper -->
+  </div>
+</section>
+
+<div class="aurora-divider"></div>
+
+<!-- Knowledge Base -->
+<section class="knowledge-section" id="knowledge">
+  <div class="container">
+    <h2 class="section-title reveal">Крупнейшая русскоязычная база знаний по токеномике</h2>
+    <p class="section-subtitle reveal">&nbsp;</p>
+    <div class="articles-grid">
+
+      {{ $pillClass := dict "basics" "" "supply" " methods" "utility" " strategy" "tools" " advanced" "primitives" " methods" "governance" " methods" }}
+      {{ $featured := slice "basics/what-is-tokenomics" "basics/tokenomics-process" "knowledge/when-token-not-needed" "models/token-supply-models" "models/demand-models" "models/mechanism-design" }}
+      {{ range $featured }}
+        {{ $page := site.GetPage . }}
+        {{ with $page }}
+        <a href="{{ .Permalink }}" class="article-card glass reveal">
+          <div class="card-meta">
+            <span class="category-pill{{ with .Params.knowledge_group }}{{ index $pillClass . }}{{ end }}">{{ .Params.tag_label }}</span>
+            <span class="read-time">{{ .ReadingTime }} мин</span>
+          </div>
+          <h3>{{ .Title }}</h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </a>
+        {{ end }}
+      {{ end }}
+
+    </div>
+  </div>
+</section>
+
+<div class="aurora-divider"></div>
+
+<!-- YouTube Interviews -->
+<section class="youtube-section" id="interviews">
+  <div class="container">
+    <h2 class="section-title reveal">Интервью и выступления</h2>
+    <p class="section-subtitle reveal">&nbsp;</p>
+
+    <div class="carousel-wrapper reveal">
+      <button class="carousel-arrow left" id="carouselLeft" aria-label="Назад">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+
+      <div class="carousel-track" id="carouselTrack">
+        {{ $interviews := slice
+          (dict "id" "KhEtFTZI4N8" "title" "Почему деньги не берутся из воздуха" "channel" "Хедлайнеры")
+          (dict "id" "OyPn44ZqUPo" "title" "Говорим о токеномике" "channel" "MetaLamp CIS")
+          (dict "id" "cQbc-G8nrFM" "title" "Токеномика LSD проекта" "channel" "Сергей Маслов")
+          (dict "id" "EWszXTfsVS4" "title" "Что такое Токеномика?" "channel" "Сергей Маслов")
+          (dict "id" "LDUXLvCJC2k" "title" "Лекция 1: Оценка бизнеса" "channel" "Курс МФТИ")
+          (dict "id" "dk8CRU6g-VA" "title" "Лекция 2: Стейкхолдеры" "channel" "Курс МФТИ")
+        }}
+        {{ range $interviews }}
+        <a href="https://www.youtube.com/watch?v={{ .id }}" target="_blank" rel="noopener" class="video-card">
+          <div class="video-thumb">
+            <img src="https://img.youtube.com/vi/{{ .id }}/mqdefault.jpg" alt="{{ .title }}" loading="lazy">
+            <div class="play-icon">
+              <svg viewBox="0 0 24 24" fill="white"><polygon points="8,5 20,12 8,19"/></svg>
+            </div>
+          </div>
+          <div class="video-info">
+            <h4>{{ .title }}</h4>
+            <span class="video-channel">{{ .channel }}</span>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+
+      <button class="carousel-arrow right" id="carouselRight" aria-label="Вперёд">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<div class="aurora-divider"></div>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <h2 class="reveal">Готовы спроектировать токеномику?</h2>
+    <p class="subtitle reveal">Расскажите о вашем проекте — обсудим задачу и предложим подход</p>
+    <div class="cta-buttons reveal">
+      <a href="{{ .Site.Params.ctaOrder }}" class="btn-primary btn-large" target="_blank" rel="noopener">Заказать токеномику</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Particle system
+(function() {
+  const canvas = document.getElementById('nebula-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const PARTICLE_COUNT = 120;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 1.8 + 0.3;
+      this.speedX = (Math.random() - 0.5) * 0.15;
+      this.speedY = (Math.random() - 0.5) * 0.15;
+      this.opacity = Math.random() * 0.5 + 0.1;
+      this.pulse = Math.random() * Math.PI * 2;
+      this.pulseSpeed = Math.random() * 0.01 + 0.005;
+      const colors = ['rgba(124,58,237,', 'rgba(6,182,212,', 'rgba(167,139,250,', 'rgba(192,180,230,'];
+      this.color = colors[Math.floor(Math.random() * colors.length)];
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.pulse += this.pulseSpeed;
+      if (this.x < -10 || this.x > canvas.width + 10 || this.y < -10 || this.y > canvas.height + 10) this.reset();
+    }
+    draw() {
+      const o = this.opacity * (0.6 + 0.4 * Math.sin(this.pulse));
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + o + ')';
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+
+// Scroll reveal
+(function() {
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+})();
+
+// Carousel
+(function() {
+  const track = document.getElementById('carouselTrack');
+  const leftBtn = document.getElementById('carouselLeft');
+  const rightBtn = document.getElementById('carouselRight');
+  if (!track || !leftBtn || !rightBtn) return;
+  const scrollAmount = 324;
+
+  leftBtn.addEventListener('click', () => {
+    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+  rightBtn.addEventListener('click', () => {
+    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+})();
+</script>
+
+{{ end }}

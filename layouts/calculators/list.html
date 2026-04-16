@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div class="page-full">
+  <div class="section-header">
+    <h1>{{ .Title }}</h1>
+    <p>{{ .Description }}</p>
+  </div>
+
+  {{ $groupTitles := dict "basics" "Основы" "supply" "Модели предложения" "demand" "Модели спроса" "defi" "DeFi-примитивы" "analytics" "Аналитика" "validators" "Валидаторы" }}
+  {{ $groupDescs := dict "basics" "Баланс спроса и предложения, давление стейкхолдеров" "supply" "Bonding curve, аллокация, airdrop, эмиссия, платёжные и скидочные модели" "demand" "Дивиденды, скорость обращения, стейкинг, токены владения" "defi" "Непостоянные потери, LMSR, маркет-мейкинг" "analytics" "Unit economics, каскадные ликвидации, концентрация держателей" "validators" "Доходность валидатора" }}
+  {{ $groupTags := dict "basics" "основы" "supply" "предложение" "demand" "спрос" "defi" "defi" "analytics" "аналитика" "validators" "валидаторы" }}
+
+  {{ $groups := slice "basics" "supply" "demand" "defi" "analytics" "validators" }}
+
+  {{ range $group := $groups }}
+    {{ $pages := where $.Pages ".Params.calc_group" $group }}
+    {{ with $pages }}
+    <div class="knowledge-section">
+      <h2>{{ index $groupTitles $group }}</h2>
+      <p class="knowledge-section-desc">{{ index $groupDescs $group }}</p>
+      <div class="article-list">
+        {{ range .ByWeight }}
+        <a href="{{ .Permalink }}" class="article-card">
+          <div class="article-meta">
+            {{ $tagClass := $group }}
+            {{ if eq $group "demand" }}{{ $tagClass = "utility" }}{{ end }}
+            {{ if eq $group "defi" }}{{ $tagClass = "primitives" }}{{ end }}
+            {{ if eq $group "analytics" }}{{ $tagClass = "knowledge" }}{{ end }}
+            <span class="article-tag article-tag--{{ $tagClass }}">{{ index $groupTags $group }}</span>
+          </div>
+          <h3>{{ .Title }}</h3>
+          {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

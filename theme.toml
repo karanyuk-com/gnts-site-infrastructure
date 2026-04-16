@@ -1,0 +1,10 @@
+name = "Giants"
+license = "MIT"
+licenselink = "https://github.com/giantstokenomics/gnts-site/blob/main/LICENSE"
+description = "Dark theme with sidebar navigation for Giants Tokenomics knowledge base"
+tags = ["dark", "documentation", "knowledge-base", "sidebar"]
+min_version = "0.120.0"
+
+[author]
+  name = "Alexey Karanyuk"
+  homepage = "https://gnts.io"
