@@ -1,0 +1,235 @@
+# Navigation
+[nav_cta]
+other = "Get Tokenomics"
+
+[nav_menu_label]
+other = "Menu"
+
+[nav_mobile_label]
+other = "Mobile navigation"
+
+[logo_alt]
+other = "Giants"
+
+# Breadcrumbs
+[breadcrumb_home]
+other = "Home"
+
+[breadcrumb_knowledge]
+other = "Knowledge Base"
+
+[breadcrumb_cases]
+other = "Cases"
+
+[breadcrumb_calculators]
+other = "Calculators"
+
+# Article
+[reading_time]
+other = "min"
+
+[reading_time_long]
+other = "min read"
+
+[related_articles]
+other = "Related Articles"
+
+[toc_title]
+other = "Contents"
+
+[toc_aria]
+other = "Table of contents"
+
+[calc_source_label]
+other = "Learn more about the model"
+
+[calc_source_link]
+other = "Read article"
+
+# Months
+[month_january]
+other = "January"
+
+[month_february]
+other = "February"
+
+[month_march]
+other = "March"
+
+[month_april]
+other = "April"
+
+[month_may]
+other = "May"
+
+[month_june]
+other = "June"
+
+[month_july]
+other = "July"
+
+[month_august]
+other = "August"
+
+[month_september]
+other = "September"
+
+[month_october]
+other = "October"
+
+[month_november]
+other = "November"
+
+[month_december]
+other = "December"
+
+# Knowledge groups
+[group_basics]
+other = "Tokenomics Basics"
+
+[group_supply]
+other = "Supply Models"
+
+[group_utility]
+other = "Demand Models"
+
+[group_tools]
+other = "Tools"
+
+[group_primitives]
+other = "Primitives"
+
+[group_governance]
+other = "Governance & DAO"
+
+# Knowledge group short names (for breadcrumbs)
+[group_short_basics]
+other = "Basics"
+
+[group_short_supply]
+other = "Supply"
+
+[group_short_utility]
+other = "Demand"
+
+[group_short_tools]
+other = "Tools"
+
+[group_short_primitives]
+other = "Primitives"
+
+[group_short_governance]
+other = "Governance"
+
+# Knowledge group descriptions
+[group_desc_basics]
+other = "What is tokenomics, design process, stakeholders"
+
+[group_desc_supply]
+other = "Allocation, bonding curves, airdrops, reward emissions, market models"
+
+[group_desc_utility]
+other = "Demand models, velocity, dividends, staking"
+
+[group_desc_tools]
+other = "Simulations, agent-based modeling, templates, mechanism design"
+
+[group_desc_primitives]
+other = "AMM, liquidity, base protocol mechanisms"
+
+[group_desc_governance]
+other = "Voting mechanisms, delegation, governance attacks"
+
+# Knowledge page
+[knowledge_subtitle]
+other = "All educational articles on tokenomics — from basics to advanced models"
+
+# Section tags
+[tag_basics]
+other = "basics"
+
+[tag_models]
+other = "models"
+
+[tag_governance]
+other = "governance"
+
+[tag_strategy]
+other = "strategy"
+
+[tag_validators]
+other = "validators"
+
+[tag_cases]
+other = "cases"
+
+# Calculator groups
+[calc_group_basics]
+other = "Basics"
+
+[calc_group_supply]
+other = "Supply Models"
+
+[calc_group_demand]
+other = "Demand Models"
+
+[calc_group_defi]
+other = "DeFi Primitives"
+
+[calc_group_analytics]
+other = "Analytics"
+
+[calc_group_validators]
+other = "Validators"
+
+[calc_group_desc_basics]
+other = "Supply and demand balance, stakeholder pressure"
+
+[calc_group_desc_supply]
+other = "Bonding curves, allocation, airdrops, emissions, payment and discount models"
+
+[calc_group_desc_demand]
+other = "Dividends, velocity, staking, ownership tokens"
+
+[calc_group_desc_defi]
+other = "Impermanent loss, LMSR, market making"
+
+[calc_group_desc_analytics]
+other = "Unit economics, cascading liquidations, holder concentration"
+
+[calc_group_desc_validators]
+other = "Validator yield"
+
+[calc_tag_basics]
+other = "basics"
+
+[calc_tag_supply]
+other = "supply"
+
+[calc_tag_demand]
+other = "demand"
+
+[calc_tag_defi]
+other = "defi"
+
+[calc_tag_analytics]
+other = "analytics"
+
+[calc_tag_validators]
+other = "validators"
+
+# 404
+[error_404_title]
+other = "Page not found"
+
+[error_404_text]
+other = "It may have been moved or deleted. Try starting from one of the sections:"
+
+[error_404_knowledge]
+other = "Knowledge Base"
+
+[error_404_cases]
+other = "Cases"
+
+[error_404_home]
+other = "Home"

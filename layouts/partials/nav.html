@@ -1,8 +1,8 @@
 <header class="header">
   <div class="header-inner">
     <a href="/" class="logo">
-      <img class="logo-img logo-img--dark" src="/images/logo-black.png" alt="Гиганты" height="28">
-      <img class="logo-img logo-img--light" src="/images/logo-white.png" alt="Гиганты" height="28">
+      <img class="logo-img logo-img--dark" src="/images/logo-black.png" alt="{{ i18n "logo_alt" }}" height="28">
+      <img class="logo-img logo-img--light" src="/images/logo-white.png" alt="{{ i18n "logo_alt" }}" height="28">
     </a>
 
     <nav class="nav">
@@ -13,9 +13,9 @@
       {{ end }}
     </nav>
 
-    <a href="{{ .Site.Params.ctaOrder }}" class="header-cta" target="_blank" rel="noopener">Заказать токеномику</a>
+    <a href="{{ .Site.Params.ctaOrder }}" class="header-cta" target="_blank" rel="noopener">{{ i18n "nav_cta" }}</a>
 
-    <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+    <button class="burger" aria-label="{{ i18n "nav_menu_label" }}" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
       <span></span>
       <span></span>
@@ -23,11 +23,11 @@
   </div>
 </header>
 
-<nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
+<nav class="mobile-nav" id="mobile-nav" aria-label="{{ i18n "nav_mobile_label" }}">
   {{ range .Site.Menus.main }}
     {{ if lt .Weight 100 }}
     <a href="{{ .URL }}">{{ .Name }}</a>
     {{ end }}
   {{ end }}
-  <a href="{{ .Site.Params.ctaOrder }}" class="header-cta" target="_blank" rel="noopener">Заказать токеномику</a>
+  <a href="{{ .Site.Params.ctaOrder }}" class="header-cta" target="_blank" rel="noopener">{{ i18n "nav_cta" }}</a>
 </nav>

@@ -8,13 +8,13 @@
   {{ with .Content }}{{ . }}{{ end }}
 
   <div class="article-list">
-    {{ $sectionTag := dict "basics" "основы" "models" "модели" "governance" "governance" "knowledge" "стратегия" "validators" "валидаторы" "cases" "кейсы" }}
+    {{ $sectionTag := dict "basics" (i18n "tag_basics") "models" (i18n "tag_models") "governance" (i18n "tag_governance") "knowledge" (i18n "tag_strategy") "validators" (i18n "tag_validators") "cases" (i18n "tag_cases") }}
     {{ range .Pages.ByWeight }}
     <a href="{{ .Permalink }}" class="article-card">
       <div class="article-meta">
         {{ $group := .Params.knowledge_group | default .Section }}
         <span class="article-tag article-tag--{{ $group }}">{{ with .Params.tag_label }}{{ . }}{{ else }}{{ index $sectionTag .Section | default .Section }}{{ end }}</span>
-        <span class="article-readtime">{{ .ReadingTime }} мин</span>
+        <span class="article-readtime">{{ .ReadingTime }} {{ i18n "reading_time" }}</span>
       </div>
       <h3>{{ .Title }}</h3>
       {{ with .Description }}<p>{{ . }}</p>{{ end }}

@@ -2,11 +2,11 @@
 <div class="page-full">
   <div class="section-header">
     <h1>{{ .Title }}</h1>
-    <p>Все обучающие статьи по токеномике — от основ до продвинутых моделей</p>
+    <p>{{ i18n "knowledge_subtitle" }}</p>
   </div>
 
-  {{ $groupTitles := dict "basics" "Основы токеномики" "supply" "Модели предложения" "utility" "Модели утилизации" "tools" "Инструменты" "primitives" "Примитивы" "governance" "Governance и DAO" }}
-  {{ $groupDescs := dict "basics" "Что такое токеномика, процесс проектирования, стейкхолдеры" "supply" "Аллокация, bonding curve, airdrop, reward-эмиссия, рыночные модели" "utility" "Модели спроса, скорость обращения, дивиденды, стейкинг" "tools" "Симуляции, агентное моделирование, шаблоны, дизайн механизмов" "primitives" "AMM, ликвидность, базовые протокольные механизмы" "governance" "Механизмы голосования, делегирование, атаки на governance" }}
+  {{ $groupTitles := dict "basics" (i18n "group_basics") "supply" (i18n "group_supply") "utility" (i18n "group_utility") "tools" (i18n "group_tools") "primitives" (i18n "group_primitives") "governance" (i18n "group_governance") }}
+  {{ $groupDescs := dict "basics" (i18n "group_desc_basics") "supply" (i18n "group_desc_supply") "utility" (i18n "group_desc_utility") "tools" (i18n "group_desc_tools") "primitives" (i18n "group_desc_primitives") "governance" (i18n "group_desc_governance") }}
 
   {{ $groups := slice "basics" "supply" "utility" "tools" "primitives" "governance" }}
 
@@ -23,7 +23,7 @@
         <a href="{{ .Permalink }}" class="article-card">
           <div class="article-meta">
             <span class="article-tag article-tag--{{ $group }}">{{ .Params.tag_label }}</span>
-            <span class="article-readtime">{{ .ReadingTime }} мин</span>
+            <span class="article-readtime">{{ .ReadingTime }} {{ i18n "reading_time" }}</span>
           </div>
           <h3>{{ .Title }}</h3>
           {{ with .Description }}<p>{{ . }}</p>{{ end }}

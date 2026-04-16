@@ -3,9 +3,9 @@
   <div class="main" style="max-width:100%;">
     <!-- Breadcrumbs -->
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Главная</a>
+      <a href="/">{{ i18n "breadcrumb_home" }}</a>
       <span class="sep" aria-hidden="true">/</span>
-      <a href="/calculators/">Калькуляторы</a>
+      <a href="/calculators/">{{ i18n "breadcrumb_calculators" }}</a>
       <span class="sep" aria-hidden="true">/</span>
       <span aria-current="page">{{ .Title }}</span>
     </nav>
@@ -24,8 +24,8 @@
     <!-- Source article link -->
     {{ with .Params.calc_source }}
     <div style="margin-top:48px;padding:20px 24px;background:rgba(124,58,237,0.04);border:1px solid rgba(124,58,237,0.12);border-radius:10px;">
-      <div style="font-family:var(--font-heading);font-size:0.82rem;font-weight:600;color:#7c3aed;margin-bottom:4px;">Подробнее о модели</div>
-      <a href="{{ . }}" style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-primary);text-decoration:underline;text-underline-offset:3px;">Читать статью &rarr;</a>
+      <div style="font-family:var(--font-heading);font-size:0.82rem;font-weight:600;color:#7c3aed;margin-bottom:4px;">{{ i18n "calc_source_label" }}</div>
+      <a href="{{ . }}" style="font-family:var(--font-body);font-size:0.95rem;color:var(--text-primary);text-decoration:underline;text-underline-offset:3px;">{{ i18n "calc_source_link" }} &rarr;</a>
     </div>
     {{ end }}
 

@@ -5,9 +5,9 @@
     <p>{{ .Description }}</p>
   </div>
 
-  {{ $groupTitles := dict "basics" "Основы" "supply" "Модели предложения" "demand" "Модели спроса" "defi" "DeFi-примитивы" "analytics" "Аналитика" "validators" "Валидаторы" }}
-  {{ $groupDescs := dict "basics" "Баланс спроса и предложения, давление стейкхолдеров" "supply" "Bonding curve, аллокация, airdrop, эмиссия, платёжные и скидочные модели" "demand" "Дивиденды, скорость обращения, стейкинг, токены владения" "defi" "Непостоянные потери, LMSR, маркет-мейкинг" "analytics" "Unit economics, каскадные ликвидации, концентрация держателей" "validators" "Доходность валидатора" }}
-  {{ $groupTags := dict "basics" "основы" "supply" "предложение" "demand" "спрос" "defi" "defi" "analytics" "аналитика" "validators" "валидаторы" }}
+  {{ $groupTitles := dict "basics" (i18n "calc_group_basics") "supply" (i18n "calc_group_supply") "demand" (i18n "calc_group_demand") "defi" (i18n "calc_group_defi") "analytics" (i18n "calc_group_analytics") "validators" (i18n "calc_group_validators") }}
+  {{ $groupDescs := dict "basics" (i18n "calc_group_desc_basics") "supply" (i18n "calc_group_desc_supply") "demand" (i18n "calc_group_desc_demand") "defi" (i18n "calc_group_desc_defi") "analytics" (i18n "calc_group_desc_analytics") "validators" (i18n "calc_group_desc_validators") }}
+  {{ $groupTags := dict "basics" (i18n "calc_tag_basics") "supply" (i18n "calc_tag_supply") "demand" (i18n "calc_tag_demand") "defi" (i18n "calc_tag_defi") "analytics" (i18n "calc_tag_analytics") "validators" (i18n "calc_tag_validators") }}
 
   {{ $groups := slice "basics" "supply" "demand" "defi" "analytics" "validators" }}
 

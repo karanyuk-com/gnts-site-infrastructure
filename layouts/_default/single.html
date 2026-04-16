@@ -2,14 +2,14 @@
 <div class="page">
   <div class="main">
     <!-- Breadcrumbs -->
-    {{ $groupTitles := dict "basics" "Основы" "supply" "Предложение" "utility" "Утилизация" "tools" "Инструменты" "primitives" "Примитивы" "governance" "Governance" }}
+    {{ $groupTitles := dict "basics" (i18n "group_short_basics") "supply" (i18n "group_short_supply") "utility" (i18n "group_short_utility") "tools" (i18n "group_short_tools") "primitives" (i18n "group_short_primitives") "governance" (i18n "group_short_governance") }}
     <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Главная</a>
+      <a href="/">{{ i18n "breadcrumb_home" }}</a>
       <span class="sep" aria-hidden="true">/</span>
       {{ if eq .Section "cases" }}
-        <a href="/cases/">Кейсы</a>
+        <a href="/cases/">{{ i18n "breadcrumb_cases" }}</a>
       {{ else }}
-        <a href="/knowledge/">База знаний</a>
+        <a href="/knowledge/">{{ i18n "breadcrumb_knowledge" }}</a>
         <span class="sep" aria-hidden="true">/</span>
         {{ with .Params.knowledge_group }}{{ $gt := index $groupTitles . }}{{ with $gt }}<span>{{ . }}</span>{{ end }}{{ end }}
       {{ end }}
@@ -18,13 +18,13 @@
     </nav>
 
     <!-- Article Header -->
-    {{ $ruMonths := dict "January" "января" "February" "февраля" "March" "марта" "April" "апреля" "May" "мая" "June" "июня" "July" "июля" "August" "августа" "September" "сентября" "October" "октября" "November" "ноября" "December" "декабря" }}
+    {{ $months := dict "January" (i18n "month_january") "February" (i18n "month_february") "March" (i18n "month_march") "April" (i18n "month_april") "May" (i18n "month_may") "June" (i18n "month_june") "July" (i18n "month_july") "August" (i18n "month_august") "September" (i18n "month_september") "October" (i18n "month_october") "November" (i18n "month_november") "December" (i18n "month_december") }}
     <div class="article-header">
       <h1>{{ .Title }}</h1>
       {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
       <div class="article-meta">
-        {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Day }} {{ index $ruMonths (.Format "January") }} {{ .Year }}</time>{{ end }}
-        {{ with .ReadingTime }}<span>{{ . }} мин. чтения</span>{{ end }}
+        {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Day }} {{ index $months (.Format "January") }} {{ .Year }}</time>{{ end }}
+        {{ with .ReadingTime }}<span>{{ . }} {{ i18n "reading_time_long" }}</span>{{ end }}
       </div>
     </div>
 
@@ -42,9 +42,9 @@
     </div>
     {{ end }}
 
-    <!-- Related articles (fixed position: always after tags) -->
+    <!-- Related articles -->
     <div class="related-articles">
-      <h3>Читайте также</h3>
+      <h3>{{ i18n "related_articles" }}</h3>
       <ul>
         {{ if .Params.related }}
           {{ range .Params.related }}
@@ -63,9 +63,9 @@
   </div>
 
   <!-- Sidebar TOC -->
-  <aside class="sidebar-toc" aria-label="Содержание">
-    <div class="sidebar-toc-title">Содержание</div>
-    <nav aria-label="Оглавление статьи">
+  <aside class="sidebar-toc" aria-label="{{ i18n "toc_title" }}">
+    <div class="sidebar-toc-title">{{ i18n "toc_title" }}</div>
+    <nav aria-label="{{ i18n "toc_aria" }}">
       {{ .TableOfContents }}
     </nav>
   </aside>

@@ -1,0 +1,235 @@
+# Navigation
+[nav_cta]
+other = "Заказать токеномику"
+
+[nav_menu_label]
+other = "Меню"
+
+[nav_mobile_label]
+other = "Мобильная навигация"
+
+[logo_alt]
+other = "Гиганты"
+
+# Breadcrumbs
+[breadcrumb_home]
+other = "Главная"
+
+[breadcrumb_knowledge]
+other = "База знаний"
+
+[breadcrumb_cases]
+other = "Кейсы"
+
+[breadcrumb_calculators]
+other = "Калькуляторы"
+
+# Article
+[reading_time]
+other = "мин"
+
+[reading_time_long]
+other = "мин. чтения"
+
+[related_articles]
+other = "Читайте также"
+
+[toc_title]
+other = "Содержание"
+
+[toc_aria]
+other = "Оглавление статьи"
+
+[calc_source_label]
+other = "Подробнее о модели"
+
+[calc_source_link]
+other = "Читать статью"
+
+# Months
+[month_january]
+other = "января"
+
+[month_february]
+other = "февраля"
+
+[month_march]
+other = "марта"
+
+[month_april]
+other = "апреля"
+
+[month_may]
+other = "мая"
+
+[month_june]
+other = "июня"
+
+[month_july]
+other = "июля"
+
+[month_august]
+other = "августа"
+
+[month_september]
+other = "сентября"
+
+[month_october]
+other = "октября"
+
+[month_november]
+other = "ноября"
+
+[month_december]
+other = "декабря"
+
+# Knowledge groups
+[group_basics]
+other = "Основы токеномики"
+
+[group_supply]
+other = "Модели предложения"
+
+[group_utility]
+other = "Модели утилизации"
+
+[group_tools]
+other = "Инструменты"
+
+[group_primitives]
+other = "Примитивы"
+
+[group_governance]
+other = "Governance и DAO"
+
+# Knowledge group short names (for breadcrumbs)
+[group_short_basics]
+other = "Основы"
+
+[group_short_supply]
+other = "Предложение"
+
+[group_short_utility]
+other = "Утилизация"
+
+[group_short_tools]
+other = "Инструменты"
+
+[group_short_primitives]
+other = "Примитивы"
+
+[group_short_governance]
+other = "Governance"
+
+# Knowledge group descriptions
+[group_desc_basics]
+other = "Что такое токеномика, процесс проектирования, стейкхолдеры"
+
+[group_desc_supply]
+other = "Аллокация, bonding curve, airdrop, reward-эмиссия, рыночные модели"
+
+[group_desc_utility]
+other = "Модели спроса, скорость обращения, дивиденды, стейкинг"
+
+[group_desc_tools]
+other = "Симуляции, агентное моделирование, шаблоны, дизайн механизмов"
+
+[group_desc_primitives]
+other = "AMM, ликвидность, базовые протокольные механизмы"
+
+[group_desc_governance]
+other = "Механизмы голосования, делегирование, атаки на governance"
+
+# Knowledge page
+[knowledge_subtitle]
+other = "Все обучающие статьи по токеномике — от основ до продвинутых моделей"
+
+# Section tags
+[tag_basics]
+other = "основы"
+
+[tag_models]
+other = "модели"
+
+[tag_governance]
+other = "governance"
+
+[tag_strategy]
+other = "стратегия"
+
+[tag_validators]
+other = "валидаторы"
+
+[tag_cases]
+other = "кейсы"
+
+# Calculator groups
+[calc_group_basics]
+other = "Основы"
+
+[calc_group_supply]
+other = "Модели предложения"
+
+[calc_group_demand]
+other = "Модели спроса"
+
+[calc_group_defi]
+other = "DeFi-примитивы"
+
+[calc_group_analytics]
+other = "Аналитика"
+
+[calc_group_validators]
+other = "Валидаторы"
+
+[calc_group_desc_basics]
+other = "Баланс спроса и предложения, давление стейкхолдеров"
+
+[calc_group_desc_supply]
+other = "Bonding curve, аллокация, airdrop, эмиссия, платёжные и скидочные модели"
+
+[calc_group_desc_demand]
+other = "Дивиденды, скорость обращения, стейкинг, токены владения"
+
+[calc_group_desc_defi]
+other = "Непостоянные потери, LMSR, маркет-мейкинг"
+
+[calc_group_desc_analytics]
+other = "Unit economics, каскадные ликвидации, концентрация держателей"
+
+[calc_group_desc_validators]
+other = "Доходность валидатора"
+
+[calc_tag_basics]
+other = "основы"
+
+[calc_tag_supply]
+other = "предложение"
+
+[calc_tag_demand]
+other = "спрос"
+
+[calc_tag_defi]
+other = "defi"
+
+[calc_tag_analytics]
+other = "аналитика"
+
+[calc_tag_validators]
+other = "валидаторы"
+
+# 404
+[error_404_title]
+other = "Страница не найдена"
+
+[error_404_text]
+other = "Возможно, она была перемещена или удалена. Попробуйте начать с одного из разделов:"
+
+[error_404_knowledge]
+other = "База знаний"
+
+[error_404_cases]
+other = "Кейсы"
+
+[error_404_home]
+other = "Главная"
