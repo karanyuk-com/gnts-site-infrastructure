@@ -15,7 +15,7 @@
   {{ range $group := $groups }}
     {{ $pages := where $allPages ".Params.knowledge_group" $group }}
     {{ with $pages }}
-    <div class="knowledge-section">
+    <div class="knowledge-section" id="{{ $group }}">
       <h2>{{ index $groupTitles $group }}</h2>
       <p class="knowledge-section-desc">{{ index $groupDescs $group }}</p>
       <div class="article-list">
