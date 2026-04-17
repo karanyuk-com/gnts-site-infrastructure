@@ -22,6 +22,24 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="canonical" href="{{ .Permalink }}">
+
+  {{/* hreflang — cross-link RU and EN sites */}}
+  {{- $altLang := .Site.Params.alternateLanguage -}}
+  {{- $altURL := .Site.Params.alternateURL -}}
+  {{- $selfLang := .Site.LanguageCode -}}
+  {{- $autoSections := slice "/" "/knowledge/" "/cases/" "/calculators/" "/models/" "/basics/" "/governance/" "/validators/" "/about/" -}}
+  {{- $isAutoPage := or .IsHome (in $autoSections .RelPermalink) -}}
+  {{- $hasTranslation := isset .Params "translation" -}}
+  {{- if and $altLang $altURL (or $isAutoPage $hasTranslation) -}}
+  <link rel="alternate" hreflang="{{ $selfLang }}" href="{{ .Permalink }}">
+  {{- if $hasTranslation }}
+  <link rel="alternate" hreflang="{{ $altLang }}" href="{{ $altURL }}{{ .Params.translation }}">
+  {{- else }}
+  <link rel="alternate" hreflang="{{ $altLang }}" href="{{ $altURL }}{{ .RelPermalink }}">
+  {{- end }}
+  <link rel="alternate" hreflang="x-default" href="{{ if eq $selfLang "en" }}{{ .Permalink }}{{ else }}{{ $altURL }}{{ .RelPermalink }}{{ end }}">
+  {{- end }}
+
   {{ with .Site.Params.googleSiteVerification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
   {{ with .Site.Params.yandexVerification }}<meta name="yandex-verification" content="{{ . }}">{{ end }}
   {{ with .Site.Params.favicon }}<link rel="icon" href="{{ . }}">{{ end }}
