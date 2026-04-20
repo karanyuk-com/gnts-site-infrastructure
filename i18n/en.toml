@@ -233,3 +233,43 @@ other = "Cases"
 
 [error_404_home]
 other = "Home"
+
+[error_404_popular]
+other = "Popular sections"
+
+[error_404_chip_basics]
+other = "Tokenomics basics"
+
+[error_404_chip_models]
+other = "Token models"
+
+[error_404_chip_calculators]
+other = "Calculators"
+
+[error_404_chip_governance]
+other = "Governance & DAO"
+
+[error_404_chip_validators]
+other = "Validators"
+
+# Shortcode defaults
+[case_label_default]
+other = "Case Study"
+
+[case_read_more]
+other = "Read more"
+
+[cta_title_default]
+other = "Order Tokenomics"
+
+[cta_text_default]
+other = "We design tokenomics models for your project"
+
+[cta_button_default]
+other = "Get in touch →"
+
+[gsheet_title_default]
+other = "Model"
+
+[youtube_title_default]
+other = "Video"

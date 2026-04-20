@@ -233,3 +233,43 @@ other = "Кейсы"
 
 [error_404_home]
 other = "Главная"
+
+[error_404_popular]
+other = "Популярные разделы"
+
+[error_404_chip_basics]
+other = "Основы токеномики"
+
+[error_404_chip_models]
+other = "Модели токенов"
+
+[error_404_chip_calculators]
+other = "Калькуляторы"
+
+[error_404_chip_governance]
+other = "Governance и DAO"
+
+[error_404_chip_validators]
+other = "Валидаторы"
+
+# Shortcode defaults
+[case_label_default]
+other = "Кейс"
+
+[case_read_more]
+other = "Читать подробнее"
+
+[cta_title_default]
+other = "Заказать токеномику"
+
+[cta_text_default]
+other = "Разработаем токеномическую модель для вашего проекта"
+
+[cta_button_default]
+other = "Связаться →"
+
+[gsheet_title_default]
+other = "Модель"
+
+[youtube_title_default]
+other = "Видео"
