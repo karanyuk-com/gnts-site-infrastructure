@@ -1,0 +1,17 @@
+{{- /*
+  schema shortcode — inline an SVG file from assets/schemas/<path>.svg
+  Usage: {{< schema "decision-tree/decision-tree_03_demand-models" >}}
+  Optional: {{< schema "..." title="Подпись" >}} adds <figcaption>
+*/ -}}
+{{- $name := .Get 0 -}}
+{{- $title := .Get "title" -}}
+{{- $path := printf "schemas/%s.svg" $name -}}
+{{- with resources.Get $path -}}
+<figure class="schema-figure" data-schema="{{ $name }}">
+  {{ .Content | safeHTML }}
+  {{- if $title }}<figcaption>{{ $title }}</figcaption>{{ end -}}
+</figure>
+{{- else -}}
+<!-- ERROR: schema not found at assets/{{ $path }} -->
+<div class="schema-error">⚠ Схема не найдена: <code>{{ $path }}</code></div>
+{{- end -}}

@@ -2225,3 +2225,32 @@ h1, h2, h3, h4 {
   border-radius: 3px;
   transition: width 0.3s;
 }
+
+/* ================================================================
+   SVG Schema palette — extracted from per-article <style> blocks
+   Used by the {{< schema >}} shortcode to render external .svg files
+   ================================================================ */
+:root{
+  --svg-text-primary:#1A1A1A;--svg-text-secondary:#6B6B6B;--svg-text-tertiary:#9A9A9A;
+  --svg-border-default:#D1D1C7;--svg-border-light:rgba(0,0,0,0.1);
+  --svg-blue-fill:#E6F1FB;--svg-blue-stroke:#185FA5;--svg-blue-title:#0C447C;--svg-blue-sub:#185FA5;
+  --svg-teal-fill:#E1F5EE;--svg-teal-stroke:#0F6E56;--svg-teal-title:#085041;--svg-teal-sub:#0F6E56;
+  --svg-purple-fill:#EEEDFE;--svg-purple-stroke:#534AB7;--svg-purple-title:#3C3489;--svg-purple-sub:#534AB7;
+  --svg-amber-fill:#FAEEDA;--svg-amber-stroke:#854F0B;--svg-amber-title:#633806;--svg-amber-sub:#854F0B;
+  --svg-coral-fill:#FAECE7;--svg-coral-stroke:#993C1D;--svg-coral-title:#712B13;--svg-coral-sub:#993C1D;
+  --svg-green-fill:#EAF3DE;--svg-green-stroke:#3B6D11;--svg-green-title:#27500A;--svg-green-sub:#3B6D11;
+  --svg-gray-fill:#F1EFE8;--svg-gray-stroke:#5F5E5A;--svg-gray-title:#444441;--svg-gray-sub:#5F5E5A
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --svg-text-primary:#E5E5E5;--svg-text-secondary:#A0A0A0;--svg-text-tertiary:#707070;
+    --svg-border-default:#555555;--svg-border-light:rgba(255,255,255,0.12);
+    --svg-blue-fill:#0C447C;--svg-blue-stroke:#85B7EB;--svg-blue-title:#B5D4F4;--svg-blue-sub:#85B7EB;
+    --svg-teal-fill:#085041;--svg-teal-stroke:#5DCAA5;--svg-teal-title:#9FE1CB;--svg-teal-sub:#5DCAA5;
+    --svg-purple-fill:#3C3489;--svg-purple-stroke:#AFA9EC;--svg-purple-title:#CECBF6;--svg-purple-sub:#AFA9EC;
+    --svg-amber-fill:#633806;--svg-amber-stroke:#EF9F27;--svg-amber-title:#FAC775;--svg-amber-sub:#EF9F27;
+    --svg-coral-fill:#712B13;--svg-coral-stroke:#F0997B;--svg-coral-title:#F5C4B3;--svg-coral-sub:#F0997B;
+    --svg-green-fill:#27500A;--svg-green-stroke:#97C459;--svg-green-title:#C0DD97;--svg-green-sub:#97C459;
+    --svg-gray-fill:#444441;--svg-gray-stroke:#B4B2A9;--svg-gray-title:#D3D1C7;--svg-gray-sub:#B4B2A9
+  }
+}
