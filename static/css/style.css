@@ -1319,6 +1319,74 @@ h1, h2, h3, h4 {
   font-size: 1rem;
 }
 
+/* PATCH B — Article CTA button (was inheriting only .landing styles) */
+.article-cta .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Space Grotesk', var(--font-heading), sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #4f46e5 100%);
+  color: #fff;
+  text-decoration: none;
+  min-height: 44px;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.article-cta .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.5),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+}
+.article-cta .btn-primary:focus-visible {
+  outline: 2px solid #c4b5fd;
+  outline-offset: 3px;
+}
+
+/* PATCH A — wide content (schemas + formulas) gets self-contained horizontal scroll on narrow screens */
+@media (max-width: 600px) {
+  /* SVG schemas (RU: wrapped via .schema-figure shortcode) */
+  .schema-figure,
+  .svg-mobile-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+  .schema-figure svg,
+  .svg-mobile-scroll svg {
+    min-width: 540px;
+    max-width: none;
+    display: block;
+  }
+
+  /* Formula widget — was wrapping char-by-char in monospace at 344 px; now keeps the formula on one line and scrolls inside the box */
+  .formula {
+    padding: 20px 16px;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+  .formula .math {
+    white-space: nowrap;
+    font-size: 1rem;
+    text-align: left;
+    display: inline-block;
+    min-width: 100%;
+  }
+  .formula .desc {
+    white-space: normal;
+  }
+}
+
 /* Article tags */
 .article-tags {
   border-top: 1px solid var(--border);

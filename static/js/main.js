@@ -161,3 +161,35 @@ function gntsCodeCopy(btn) {
     }, 2000);
   });
 }
+
+// ====== Mobile-scroll wrapper for inline SVG schemas (no .schema-figure parent) ======
+// Some articles (notably EN ones) use inline <svg> directly in markdown, without
+// the {{< schema >}} shortcode. On narrow screens those SVGs shrink to ~5px text.
+// This wraps each bare inline SVG in a horizontally-scrollable div on first paint.
+(function() {
+  function wrapInlineSvgs() {
+    var svgs = document.querySelectorAll('main svg[viewBox]');
+    svgs.forEach(function(svg) {
+      var parent = svg.parentElement;
+      if (!parent) return;
+      // Skip if already wrapped or inside an existing schema-figure / .svg-mobile-scroll
+      if (parent.classList.contains('schema-figure') ||
+          parent.classList.contains('svg-mobile-scroll') ||
+          parent.tagName === 'FIGURE') return;
+      // Skip tiny inline icons (no viewBox above 100 width)
+      var vb = (svg.getAttribute('viewBox') || '').split(/\s+/);
+      if (vb.length === 4 && parseFloat(vb[2]) < 200) return;
+
+      var wrap = document.createElement('div');
+      wrap.className = 'svg-mobile-scroll';
+      svg.parentNode.insertBefore(wrap, svg);
+      wrap.appendChild(svg);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wrapInlineSvgs);
+  } else {
+    wrapInlineSvgs();
+  }
+})();

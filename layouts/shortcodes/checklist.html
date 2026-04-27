@@ -2,7 +2,7 @@
 {{ $class := "gnts-check" }}
 {{ if eq $type "curve" }}{{ $class = "gnts-check-curve" }}{{ end }}
 {{ if eq $type "step" }}{{ $class = "gnts-check-step" }}{{ end }}
-{{ with .Get "title" }}<h4 class="gnts-check-title" style="margin-bottom:16px;">{{ . }}</h4>{{ end }}
+{{ with .Get "title" }}<div class="gnts-check-title" style="margin-bottom:16px;font-family:var(--font-heading);font-size:.95rem;font-weight:600;color:var(--text-primary);">{{ . }}</div>{{ end }}
 <div class="{{ $class }}">
   {{ .Inner | markdownify }}
 </div>
