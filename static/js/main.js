@@ -175,6 +175,7 @@ function gntsCodeCopy(btn) {
       // Skip if already wrapped or inside an existing schema-figure / .svg-mobile-scroll
       if (parent.classList.contains('schema-figure') ||
           parent.classList.contains('svg-mobile-scroll') ||
+          parent.classList.contains('gnts-calc-chart') ||
           parent.tagName === 'FIGURE') return;
       // Skip tiny inline icons (no viewBox above 100 width)
       var vb = (svg.getAttribute('viewBox') || '').split(/\s+/);

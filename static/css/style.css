@@ -1367,6 +1367,17 @@ h1, h2, h3, h4 {
     display: block;
   }
 
+  /* Calculator charts must scale to viewport, not horizontal-scroll */
+  .gnts-calc-chart .svg-mobile-scroll {
+    overflow: visible !important;
+  }
+  .gnts-calc-chart .svg-mobile-scroll svg,
+  .gnts-calc-chart > svg {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
   /* Formula widget — was wrapping char-by-char in monospace at 344 px; now keeps the formula on one line and scrolls inside the box */
   .formula {
     padding: 20px 16px;
