@@ -198,6 +198,72 @@ h1, h2, h3, h4 {
   color: #f0ecff;
 }
 
+/* Nav dropdown — desktop hover only */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  padding: 8px;
+  background: rgba(248, 247, 244, 0.97);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  flex-direction: column;
+  gap: 2px;
+  z-index: 1002;
+}
+
+.landing .nav-dropdown-menu {
+  background: rgba(20, 14, 35, 0.97);
+  border-color: rgba(124, 58, 237, 0.2);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 14px;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--text-primary);
+}
+
+.landing .nav-dropdown-menu a {
+  color: #a59cc4;
+}
+
+.landing .nav-dropdown-menu a:hover {
+  background: rgba(124, 58, 237, 0.18);
+  color: #f0ecff;
+}
+
+@media (hover: hover) and (min-width: 1025px) {
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    display: flex;
+  }
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;
