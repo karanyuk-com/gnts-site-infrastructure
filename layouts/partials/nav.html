@@ -1,3 +1,9 @@
+{{ $ctaURL := .Site.Params.ctaOrder }}
+{{ $ctaExternal := true }}
+{{ if eq .Site.LanguageCode "en" }}
+  {{ $ctaURL = "/quote/" }}
+  {{ $ctaExternal = false }}
+{{ end }}
 <header class="header">
   <div class="header-inner">
     <a href="/" class="logo">
@@ -13,7 +19,7 @@
       {{ end }}
     </nav>
 
-    <a href="{{ .Site.Params.ctaOrder }}" class="header-cta" target="_blank" rel="noopener">{{ i18n "nav_cta" }}</a>
+    <a href="{{ $ctaURL }}" class="header-cta"{{ if $ctaExternal }} target="_blank" rel="noopener"{{ end }}>{{ i18n "nav_cta" }}</a>
 
     <button class="burger" aria-label="{{ i18n "nav_menu_label" }}" aria-expanded="false" aria-controls="mobile-nav">
       <span></span>
@@ -29,5 +35,5 @@
     <a href="{{ .URL }}">{{ .Name }}</a>
     {{ end }}
   {{ end }}
-  <a href="{{ .Site.Params.ctaOrder }}" class="header-cta" target="_blank" rel="noopener">{{ i18n "nav_cta" }}</a>
+  <a href="{{ $ctaURL }}" class="header-cta"{{ if $ctaExternal }} target="_blank" rel="noopener"{{ end }}>{{ i18n "nav_cta" }}</a>
 </nav>
