@@ -257,6 +257,20 @@ h1, h2, h3, h4 {
   color: #f0ecff;
 }
 
+.nav-dropdown-menu .nav-dropdown-all {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.landing .nav-dropdown-menu .nav-dropdown-all {
+  border-top-color: rgba(124, 58, 237, 0.2);
+  color: #f0ecff;
+}
+
 @media (hover: hover) and (min-width: 1025px) {
   .nav-dropdown:hover .nav-dropdown-menu,
   .nav-dropdown:focus-within .nav-dropdown-menu {

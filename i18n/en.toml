@@ -290,6 +290,9 @@ other = "Tokenomics Audit"
 [footer_tokenization]
 other = "Tokenization"
 
+[nav_all_services]
+other = "All Services"
+
 # Footer — Legal
 [footer_privacy]
 other = "Privacy Policy"
