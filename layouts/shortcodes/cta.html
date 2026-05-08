@@ -1,7 +1,9 @@
+{{ $link := .Get "link" | default $.Site.Params.ctaOrder }}
+{{ $external := hasPrefix $link "http" }}
 <div class="article-cta">
-  <h3>{{ .Get "title" | default "Заказать токеномику" }}</h3>
-  <p>{{ .Get "text" | default "Разработаем токеномическую модель для вашего проекта" }}</p>
-  <a href="{{ .Get "link" | default $.Site.Params.ctaOrder }}" class="btn-primary" target="_blank" rel="noopener">
-    {{ .Get "button" | default "Связаться →" }}
+  <h3>{{ .Get "title" | default (i18n "cta_title_default") }}</h3>
+  <p>{{ .Get "text" | default (i18n "cta_text_default") }}</p>
+  <a href="{{ $link }}" class="btn-primary"{{ if $external }} target="_blank" rel="noopener"{{ end }}>
+    {{ .Get "button" | default (i18n "cta_button_default") }}
   </a>
 </div>
