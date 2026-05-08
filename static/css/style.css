@@ -1998,6 +1998,10 @@ h1, h2, h3, h4 {
   align-items: start;
 }
 
+.footer-grid--with-services {
+  grid-template-columns: 1fr auto auto auto;
+}
+
 .footer-brand {
   display: flex;
   flex-direction: column;
@@ -2042,6 +2046,34 @@ h1, h2, h3, h4 {
 .footer-social a:hover {
   border-color: var(--border-hover);
   color: var(--accent);
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+  color: var(--text-secondary);
 }
 
 /* ====== CUSTOM CHECKMARKS — 3 types ====== */

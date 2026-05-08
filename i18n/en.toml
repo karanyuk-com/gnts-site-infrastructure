@@ -273,3 +273,29 @@ other = "Model"
 
 [youtube_title_default]
 other = "Video"
+
+# Footer — Services
+[footer_services]
+other = "Services"
+
+[footer_tokenomics_design]
+other = "Tokenomics Design"
+
+[footer_tokenomics_modeling]
+other = "Tokenomics Modeling"
+
+[footer_tokenomics_audit]
+other = "Tokenomics Audit"
+
+[footer_tokenization]
+other = "Tokenization"
+
+# Footer — Legal
+[footer_privacy]
+other = "Privacy Policy"
+
+[footer_terms]
+other = "Terms of Service"
+
+[footer_copyright]
+other = "Giants Tokenomics Labs"
