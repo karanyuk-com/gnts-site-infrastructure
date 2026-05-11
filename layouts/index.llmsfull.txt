@@ -1,0 +1,108 @@
+{{- /*
+  llms-full.txt — auto-generated full-text dump of the site in markdown.
+  Format follows the llmstxt.org "llms-full.txt" convention: complete contents
+  of all pages, in markdown, attribution required.
+  Generated at Hugo build time. Triggered by [outputs] home = [..., "LlmsFull"].
+
+  Strategy:
+    1. Iterate sections in a fixed order (so the dump is deterministic and
+       structurally readable for LLMs).
+    2. For each section: emit the section landing page (_index.md) if it has
+       meaningful content, then every regular page in that section.
+    3. For each page: emit metadata block + raw markdown content with the
+       frontmatter stripped (so LLMs see headings and lists, not HTML entities).
+*/ -}}
+# {{ .Site.Title }}
+
+> {{ .Site.Params.description }}
+
+Site: {{ .Site.BaseURL }}
+Language: {{ .Site.LanguageCode }}
+Author: {{ .Site.Params.author }}
+Generated: {{ now.Format "2006-01-02" }}
+Total pages: {{ len .Site.RegularPages }}
+Index file: {{ .Site.BaseURL }}llms.txt
+This file: {{ .Site.BaseURL }}llms-full.txt
+AI policy: {{ .Site.BaseURL }}ai.txt
+
+This is the full-text dump of every article on the site, prepared for LLM ingestion (retrieval and training). Content is in markdown. Attribution to the source is required when content is cited.
+
+---
+{{- $sectionOrder := slice "basics" "models" "knowledge" "governance" "cases" "calculators" "validators" "services" "tokenomics-design" "tokenomics-modeling" "tokenomics-audit" "tokenization" "book" "quote" -}}
+{{- range $sectionOrder }}
+{{- $sec := . }}
+{{- $sectionLandings := where (where site.Pages "Kind" "section") "Section" $sec -}}
+{{- $regularPages := where site.RegularPages "Section" $sec -}}
+{{- if or $regularPages $sectionLandings }}
+
+# Section: {{ humanize $sec }}
+{{- range $sectionLandings }}
+{{- $raw := .RawContent }}
+{{- $raw = replaceRE `(?s)^---\s*\n.*?\n---\s*\n` "" $raw }}
+{{- $raw = replaceRE `(?s)^\+\+\+\s*\n.*?\n\+\+\+\s*\n` "" $raw }}
+{{- $raw = trim $raw " \n\r\t" }}
+
+## Section landing: {{ .Title | default (humanize $sec) }}
+
+- URL: {{ .Permalink }}
+- Kind: section landing
+- Section: {{ $sec }}
+{{- with .Description }}
+- Description: {{ . }}
+{{- end }}
+{{- with .Params.hero }}
+{{- with .h1 }}
+- Hero headline: {{ replaceRE "<[^>]+>" "" . }}
+{{- end }}
+{{- with .subtitle }}
+- Hero subtitle: {{ replaceRE "<[^>]+>" "" . }}
+{{- end }}
+{{- end }}
+{{- with .Params.deliverables }}
+{{- with .title }}
+- Deliverables block: {{ . }}
+{{- end }}
+{{- with .subtitle }}
+- Deliverables subtitle: {{ replaceRE "<[^>]+>" "" . }}
+{{- end }}
+{{- end }}
+{{- if $raw }}
+
+{{ $raw }}
+{{- end }}
+
+---
+{{- end }}
+{{- range $regularPages.ByTitle }}
+{{- $raw := .RawContent }}
+{{- $raw = replaceRE `(?s)^---\s*\n.*?\n---\s*\n` "" $raw }}
+{{- $raw = replaceRE `(?s)^\+\+\+\s*\n.*?\n\+\+\+\s*\n` "" $raw }}
+{{- $raw = trim $raw " \n\r\t" }}
+
+## {{ .Title }}
+
+- URL: {{ .Permalink }}
+- Section: {{ .Section }}
+{{- with .Date }}
+- Date: {{ .Format "2006-01-02" }}
+{{- end }}
+{{- with .Lastmod }}
+- Last modified: {{ .Format "2006-01-02" }}
+{{- end }}
+{{- with .Description }}
+- Description: {{ . }}
+{{- end }}
+
+{{ $raw }}
+
+---
+{{ end }}
+{{- end }}
+{{- end }}
+
+# About this dump
+
+This file is part of the {{ .Site.Title }} site ({{ .Site.BaseURL }}).
+Maintained by {{ .Site.Params.author }}.
+For citation format and AI usage policy, see {{ .Site.BaseURL }}ai.txt.
+For a curated index of the site instead of the full text, see {{ .Site.BaseURL }}llms.txt.

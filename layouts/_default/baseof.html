@@ -107,6 +107,12 @@
   {{ end }}
 
   <!-- Structured Data (JSON-LD) -->
+  {{- $authorName := .Site.Params.author -}}
+  {{- $authorJobTitle := cond (eq .Site.LanguageCode "en") "Tokenomics designer, founder of Giants — Tokenomics Lab" "Токеномист, основатель Лаборатории Токеномики «Гиганты»" -}}
+  {{- $authorBio := cond (eq .Site.LanguageCode "en") "Tokenomics designer with 40+ delivered Web3 projects; lecturer at the blockchain department of MIPT." "Токеномист, спроектировавший токеномику для 40+ Web3-проектов; лектор кафедры блокчейн МФТИ." -}}
+  {{- $authorSameAs := slice .Site.Params.telegram -}}
+  {{- with .Site.Params.youtube }}{{ $authorSameAs = $authorSameAs | append . }}{{ end -}}
+  {{- with .Site.Params.linkedin }}{{ $authorSameAs = $authorSameAs | append . }}{{ end -}}
   {{ if .IsHome }}
   <script type="application/ld+json">
   {
@@ -116,10 +122,15 @@
     "url": "{{ .Site.BaseURL }}",
     "logo": "{{ .Site.BaseURL }}images/logo.svg",
     "description": "{{ .Site.Params.description }}",
-    "sameAs": [
-      "{{ .Site.Params.telegram }}",
-      "{{ .Site.Params.youtube }}"
-    ]
+    "founder": {
+      "@type": "Person",
+      "name": "{{ $authorName }}",
+      "jobTitle": "{{ $authorJobTitle }}",
+      "description": "{{ $authorBio }}",
+      "url": "{{ .Site.BaseURL }}",
+      "sameAs": [{{ range $i, $u := $authorSameAs }}{{ if $i }}, {{ end }}"{{ $u }}"{{ end }}]
+    },
+    "sameAs": [{{ range $i, $u := $authorSameAs }}{{ if $i }}, {{ end }}"{{ $u }}"{{ end }}]
   }
   </script>
   <script type="application/ld+json">
@@ -127,7 +138,16 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "{{ .Site.Title }}",
-    "url": "{{ .Site.BaseURL }}"
+    "url": "{{ .Site.BaseURL }}",
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "url": "{{ .Site.BaseURL }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.BaseURL }}images/logo.svg"
+      }
+    }
   }
   </script>
   {{ else if .IsPage }}
@@ -141,13 +161,22 @@
     {{ with .Date }}"datePublished": "{{ .Format "2006-01-02" }}",{{ end }}
     {{ with .Lastmod }}"dateModified": "{{ .Format "2006-01-02" }}",{{ end }}
     "author": {
-      "@type": "Organization",
-      "name": "{{ .Site.Title }}",
-      "url": "{{ .Site.BaseURL }}"
+      "@type": "Person",
+      "name": "{{ $authorName }}",
+      "jobTitle": "{{ $authorJobTitle }}",
+      "description": "{{ $authorBio }}",
+      "url": "{{ .Site.BaseURL }}",
+      "sameAs": [{{ range $i, $u := $authorSameAs }}{{ if $i }}, {{ end }}"{{ $u }}"{{ end }}],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "{{ .Site.Title }}",
+        "url": "{{ .Site.BaseURL }}"
+      }
     },
     "publisher": {
       "@type": "Organization",
       "name": "{{ .Site.Title }}",
+      "url": "{{ .Site.BaseURL }}",
       "logo": {
         "@type": "ImageObject",
         "url": "{{ .Site.BaseURL }}images/logo.svg"
