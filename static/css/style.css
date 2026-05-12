@@ -979,13 +979,22 @@ h1, h2, h3, h4 {
   .problem-card { padding: 28px 24px; }
   .landing .articles-grid { grid-template-columns: 1fr; }
 
-  /* Timeline mobile: single column stack */
+  /* Timeline mobile: single column stack
+     Колонки `.timeline-col-left/right` свёрнуты через display:contents,
+     чтобы .timeline-step стали прямыми flex-детьми .timeline-wrapper —
+     иначе DOM-порядок (01,03,05,02,04) ломает нумерацию. */
   .timeline-wrapper {
     flex-direction: column;
     gap: 24px;
   }
   .timeline-wrapper::before { display: none; }
-  .timeline-col-right { margin-top: 0; }
+  .timeline-col-left,
+  .timeline-col-right { display: contents; }
+  .timeline-col-left  .timeline-step:nth-child(1) { order: 1; }
+  .timeline-col-right .timeline-step:nth-child(1) { order: 2; }
+  .timeline-col-left  .timeline-step:nth-child(2) { order: 3; }
+  .timeline-col-right .timeline-step:nth-child(2) { order: 4; }
+  .timeline-col-left  .timeline-step:nth-child(3) { order: 5; }
   .timeline-svg-inline svg { width: 160px; }
 
   .video-card { flex: 0 0 260px; }
