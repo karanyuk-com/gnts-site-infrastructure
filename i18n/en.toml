@@ -102,6 +102,9 @@ other = "Primitives"
 [group_governance]
 other = "Governance & DAO"
 
+[group_projects]
+other = "Project Reviews"
+
 # Knowledge group short names (for breadcrumbs)
 [group_short_basics]
 other = "Basics"
@@ -121,6 +124,9 @@ other = "Primitives"
 [group_short_governance]
 other = "Governance"
 
+[group_short_projects]
+other = "Projects"
+
 # Knowledge group descriptions
 [group_desc_basics]
 other = "What is tokenomics, design process, stakeholders"
@@ -139,6 +145,9 @@ other = "AMM, liquidity, base protocol mechanisms"
 
 [group_desc_governance]
 other = "Voting mechanisms, delegation, governance attacks"
+
+[group_desc_projects]
+other = "Tokenomics deep dives into specific projects: Bittensor, Babylon, and others"
 
 # Knowledge page
 [knowledge_subtitle]

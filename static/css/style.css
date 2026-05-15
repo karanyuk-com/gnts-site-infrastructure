@@ -1676,6 +1676,11 @@ h1, h2, h3, h4 {
   color: #db2777;
   border: 1px solid rgba(236, 72, 153, 0.15);
 }
+.article-tag--projects {
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+}
 
 .article-readtime {
   font-family: var(--font-heading);

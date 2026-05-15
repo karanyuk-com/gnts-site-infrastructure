@@ -5,10 +5,10 @@
     <p>{{ i18n "knowledge_subtitle" }}</p>
   </div>
 
-  {{ $groupTitles := dict "basics" (i18n "group_basics") "supply" (i18n "group_supply") "utility" (i18n "group_utility") "tools" (i18n "group_tools") "primitives" (i18n "group_primitives") "governance" (i18n "group_governance") }}
-  {{ $groupDescs := dict "basics" (i18n "group_desc_basics") "supply" (i18n "group_desc_supply") "utility" (i18n "group_desc_utility") "tools" (i18n "group_desc_tools") "primitives" (i18n "group_desc_primitives") "governance" (i18n "group_desc_governance") }}
+  {{ $groupTitles := dict "basics" (i18n "group_basics") "supply" (i18n "group_supply") "utility" (i18n "group_utility") "tools" (i18n "group_tools") "primitives" (i18n "group_primitives") "governance" (i18n "group_governance") "projects" (i18n "group_projects") }}
+  {{ $groupDescs := dict "basics" (i18n "group_desc_basics") "supply" (i18n "group_desc_supply") "utility" (i18n "group_desc_utility") "tools" (i18n "group_desc_tools") "primitives" (i18n "group_desc_primitives") "governance" (i18n "group_desc_governance") "projects" (i18n "group_desc_projects") }}
 
-  {{ $groups := slice "basics" "supply" "utility" "tools" "primitives" "governance" }}
+  {{ $groups := slice "basics" "supply" "utility" "tools" "primitives" "governance" "projects" }}
 
   {{ $allPages := site.RegularPages }}
 

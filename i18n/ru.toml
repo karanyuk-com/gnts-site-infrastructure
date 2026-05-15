@@ -102,6 +102,9 @@ other = "Примитивы"
 [group_governance]
 other = "Governance и DAO"
 
+[group_projects]
+other = "Разборы проектов"
+
 # Knowledge group short names (for breadcrumbs)
 [group_short_basics]
 other = "Основы"
@@ -121,6 +124,9 @@ other = "Примитивы"
 [group_short_governance]
 other = "Governance"
 
+[group_short_projects]
+other = "Проекты"
+
 # Knowledge group descriptions
 [group_desc_basics]
 other = "Что такое токеномика, процесс проектирования, стейкхолдеры"
@@ -139,6 +145,9 @@ other = "AMM, ликвидность, базовые протокольные м
 
 [group_desc_governance]
 other = "Механизмы голосования, делегирование, атаки на governance"
+
+[group_desc_projects]
+other = "Разборы токеномики конкретных проектов: Bittensor, Babylon и другие"
 
 # Knowledge page
 [knowledge_subtitle]
