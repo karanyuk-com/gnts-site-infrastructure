@@ -105,6 +105,9 @@ other = "Governance & DAO"
 [group_projects]
 other = "Project Reviews"
 
+[group_rwa]
+other = "Real World Assets"
+
 # Knowledge group short names (for breadcrumbs)
 [group_short_basics]
 other = "Basics"
@@ -127,6 +130,9 @@ other = "Governance"
 [group_short_projects]
 other = "Projects"
 
+[group_short_rwa]
+other = "RWA"
+
 # Knowledge group descriptions
 [group_desc_basics]
 other = "What is tokenomics, design process, stakeholders"
@@ -148,6 +154,9 @@ other = "Voting mechanisms, delegation, governance attacks"
 
 [group_desc_projects]
 other = "Tokenomics deep dives into specific projects: Bittensor, Babylon, and others"
+
+[group_desc_rwa]
+other = "Tokenizing real-world assets: agriculture, credit, architecture, yields, and default risk"
 
 # Knowledge page
 [knowledge_subtitle]

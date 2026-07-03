@@ -105,6 +105,9 @@ other = "Governance и DAO"
 [group_projects]
 other = "Разборы проектов"
 
+[group_rwa]
+other = "Реальные активы (RWA)"
+
 # Knowledge group short names (for breadcrumbs)
 [group_short_basics]
 other = "Основы"
@@ -127,6 +130,9 @@ other = "Governance"
 [group_short_projects]
 other = "Проекты"
 
+[group_short_rwa]
+other = "RWA"
+
 # Knowledge group descriptions
 [group_desc_basics]
 other = "Что такое токеномика, процесс проектирования, стейкхолдеры"
@@ -148,6 +154,9 @@ other = "Механизмы голосования, делегирование, 
 
 [group_desc_projects]
 other = "Разборы токеномики конкретных проектов: Bittensor, Babylon и другие"
+
+[group_desc_rwa]
+other = "Токенизация реальных активов: сельское хозяйство, кредит, архитектура, доходность, риски дефолта"
 
 # Knowledge page
 [knowledge_subtitle]
