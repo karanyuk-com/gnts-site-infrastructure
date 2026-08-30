@@ -379,6 +379,14 @@ h1, h2, h3, h4 {
   color: var(--accent);
 }
 
+/* Sub-entries under a top-level mobile nav item (EN service pages that live in the desktop Services dropdown). Negative margin pulls them out of the parent gap so they read as a group. */
+.mobile-nav a.mobile-nav-sub {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-top: -20px;
+}
+
 
 /* ================================================================
    LANDING PAGE — V3 Dark cosmic theme

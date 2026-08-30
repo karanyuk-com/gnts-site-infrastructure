@@ -23,6 +23,8 @@
               <a href="/tokenomics-modeling/">{{ i18n "footer_tokenomics_modeling" }}</a>
               <a href="/tokenomics-audit/">{{ i18n "footer_tokenomics_audit" }}</a>
               <a href="/tokenization/">{{ i18n "footer_tokenization" }}</a>
+              <a href="/a2a/">{{ i18n "footer_a2a" }}</a>
+              <a href="/tokenomics-agents/">{{ i18n "footer_tokenomics_agents" }}</a>
               <a href="/services/" class="nav-dropdown-all">{{ i18n "nav_all_services" }}</a>
             </div>
           </div>
@@ -47,6 +49,11 @@
   {{ range .Site.Menus.main }}
     {{ if lt .Weight 100 }}
     <a href="{{ .URL }}">{{ .Name }}</a>
+    {{/* EN service sub-pages are not top-level menu entries (they live in the Services dropdown on desktop), so surface them here. */}}
+    {{ if and $isEN (eq .URL "/services/") }}
+    <a href="/a2a/" class="mobile-nav-sub">{{ i18n "footer_a2a" }}</a>
+    <a href="/tokenomics-agents/" class="mobile-nav-sub">{{ i18n "footer_tokenomics_agents" }}</a>
+    {{ end }}
     {{ end }}
   {{ end }}
   <a href="{{ $ctaURL }}" class="header-cta"{{ if $ctaExternal }} target="_blank" rel="noopener"{{ end }}>{{ i18n "nav_cta" }}</a>

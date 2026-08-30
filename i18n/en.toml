@@ -308,6 +308,12 @@ other = "Tokenomics Audit"
 [footer_tokenization]
 other = "Tokenization"
 
+[footer_a2a]
+other = "A2A Tokenomics"
+
+[footer_tokenomics_agents]
+other = "Tokenomics Agents"
+
 [nav_all_services]
 other = "All Services"
 
